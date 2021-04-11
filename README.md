@@ -194,4 +194,6 @@
 
 "You are either building a learning organization or you will be losing to someone who is." --Andrew Clay Shafer
 
-## Original source of this content is : https://github.com/chris-short/DevOps-README.md/blob/main/README.md
+## Original source of this content is :
+
+https://github.com/chris-short/DevOps-README.md/blob/main/README.md
