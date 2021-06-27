@@ -9,6 +9,7 @@
 *   Cons: It only defines the principle of DevOps, it does not show how it is done
 *   Quip: It's better than nothing
 *   URL: [What is DevOps](https://devopsish.com/what-is-devops/?utm_source=devops-readme.md&utm_medium=github.com)
+*   URL: [Trello](https://trello.com/c/5be1BQXw/45-books)
 
 ## The Phoenix Project
 
