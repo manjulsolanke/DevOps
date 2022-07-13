@@ -1,3 +1,5 @@
+## Git commands
+
 <details><summary> Initializing a repository </summary>
   git init
   
