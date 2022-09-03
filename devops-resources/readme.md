@@ -198,3 +198,10 @@
 ## Original source of this content is :
 
 https://github.com/chris-short/DevOps-README.md/blob/main/README.md
+
+## DevOps Books
+
+* 1. The DevOps Handbook
+* 2. The Phoenix Project
+* 3. The Unicorn Project
+

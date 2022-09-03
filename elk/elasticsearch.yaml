@@ -1,8 +1,13 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: kube-logging
 ---
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: es-cluster
+  namespace: kube-logging
 spec:
   serviceName: elasticsearch
   replicas: 3
@@ -16,7 +21,7 @@ spec:
     spec:
       containers:
       - name: elasticsearch
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
         resources:
             limits:
               cpu: 1000m
@@ -71,15 +76,16 @@ spec:
         app: elasticsearch
     spec:
       accessModes: [ "ReadWriteOnce" ]
-      # storageClassName: ""
+        #storageClassName: ""
       resources:
         requests:
           storage: 3Gi
 ---
-apiVersion: v1
 kind: Service
+apiVersion: v1
 metadata:
   name: elasticsearch
+  namespace: kube-logging
   labels:
     app: elasticsearch
 spec:
@@ -91,5 +97,3 @@ spec:
       name: rest
     - port: 9300
       name: inter-node
----      
-
