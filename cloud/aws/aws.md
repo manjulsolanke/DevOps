@@ -3364,3 +3364,6 @@ You can use an ElastiCache cluster or RDS Read Replicas.
 ARN (Amazon Resources Names) used for uniquely identifying different AWS resources.
 It is used when you would like to identify resource uniqely across all AWS infra.
 </b></details>
+
+
+Note:  original source of this content is https://github.com/bregman-arie/devops-exercises
