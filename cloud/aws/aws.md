@@ -1020,6 +1020,73 @@ Pros:
 
 ### VPC
 
+
+
+
+VPC(Virtual Private cloud) 
+    - Virtual env 
+    - similar to have your own Datacenter inside the AWS
+    - Logically isolated from other VPCs on aws
+    - one can have multiple VPCs in one account
+    - once can have full control and resources hosted into the vpc
+    - VPC is region specific, so can't spans across the regions
+    - VPC can extend AZ within region
+
+Subnets 
+    - We can have more than the one subnets in AZ
+    - Can subnets extend two AZ? Ans is NO.
+
+VPC compounts
+    - CIDR and IP address subnets
+    - implied router, which facliliated the route within the subnets 
+        - Connect different subnets
+        - Its central VPC routing functions
+    - Router tables
+        - Each subnets will have a route table the router uses to forward traffic within the vpc 
+        - You can have upto 200 routing tables per vpc
+        - you can have upto 50 routes entries per route table 
+        - Each subnet MUST be associated with only one route table at any given time
+        - can I attach the subnet with multiple route tables at any given time? Ans is NO.
+        - Can I use same route table to be associated with mutiple subnets at the same time? ans is Yes.
+        - If you didn't specify a subnet-to-Route-table association, the subnets (when it created) will be associcated with the main (default ) VPC route table.
+        - Main route table is get created by default by AWS when you create VPC.
+        - You can change the subnet association to another route table, but not both. It would be either or case
+        - You can also edit the main (Default) route table if you need, but you can't delete the main route table 
+            - However, you can make custom route table manually become the main route table, then you can
+            delete the former main, as it is no longer a main route table 
+        - Every RT in VPC comes with a default rule that allows all VPC subnets to communicate with one another. ( where it will be? in RT destination we can see CIDR value and target will be local )
+            - You can NOT modify or delete this rule
+                - VM1 in subnet1 not able to connect to VM2 in submnet2. What would be the issue - dont say route table issue.
+
+=====================
+
+    - VPC IP Addressing
+        - Once the VPC is created, you can NOT change its CIDR block range. You can howerver, expand your
+          VPC CIDR by adding new/extra IP address ranges.
+        - The different subnets within a VPC can NOT OVERLAP. 
+        - First 4 IP address in each subnet and the last one are reserved by AWS
+           - Ex. if the subnet is 10.0.0.0/24
+                - 10.0.0.0 is the base network
+                - 10.0.0.1 VPC route
+                - 10.0.0.2 DNS related
+                - 10.0.0.2 Reserved for the future use
+                - 10.0.0.255
+    - Internet gateway - Without IG VPC can't communicate to outside the world
+        - is the gateway through which your VPC communicates with the internet  and with ohter
+        AWS services
+        - is a horizontally scale redundant and highly available.
+        - It performs NAT (static one-to-one) between your private and public (or Elastic) IPv4 address.
+
+
+
+
+    - Security groups - Its virtual Firewall  (defece in depth, SG would be last defence compounts)
+    - Network access control lists (NACLs - first line of defence)
+    - Virtual private gateway (will faciliated connectivity to own premises alike HQ )
+
+
+
+
 <details>
 <summary>What is VPC?</summary><br><b>
 
