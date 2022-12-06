@@ -1,8 +1,5 @@
 # AWS
 
-**Note**: Some of the exercises <b>cost $$$</b> and can't be performed using the free tier/resources
-
-**2nd Note**: Provided solutions are using the AWS console. It's recommended you'll use IaC technologies to solve the exercises (e.g. Terraform, Pulumi).<br>
 
 - [AWS](#aws)
   - [Exercises](#exercises)
@@ -3464,3 +3461,24 @@ It is used when you would like to identify resource uniqely across all AWS infra
 
 
 Note:  original source of this content is https://github.com/bregman-arie/devops-exercises
+<<<<<<< HEAD
+=======
+
+
+
+You’re invited: Microsoft Azure Virtual Training Day: Data Fundamentals
+You’re invited: Microsoft Azure Virtual Training Day: Fundamentals
+
+
+
+its entire lifecycle must exist on a cloud platform
+Cloud applications platforms are designed for portability.
+
+
+- upd
+- tcp
+- pro
+
+- pbx
+- 
+>>>>>>> 8cfb671 (aws and autoscaling)
