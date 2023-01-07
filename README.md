@@ -5,7 +5,7 @@ This would be my DevOps workspace.
 
 ### Linux
 
-- [✔️] 📚 1.1 > [Linux ](linux/linux.md)
+- [✔️] 📚 1.1 > [Linux ](linux)
 
 ### Cloud
 
