@@ -96,3 +96,26 @@ Images are just [templates for docker containers](https://docs.docker.com/engine
 * [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull) pulls an image from registry to local machine.
 * [`docker push`](https://docs.docker.com/engine/reference/commandline/push) pushes an image to the registry from local machine.
 
+
+## Docker project 
+
+project on docker 
+
+1) Two VMs (cloud)
+    1) dev-vm
+    2) prod-vm
+2) Create a docker called "demo-webserver" image on dev-vm
+3) give a tag called "v1" i.e demo-webserver:v1
+4) run that "demo-webserver" docker image on dev-vm
+5) Push docker images called "demo-webserver" to registry
+    verification on dev-vm
+    1) docker image - should show image called "demo-webserver"
+    2) docker ps - should show container called "demo-webserver" is running 
+    3) docker image called "demo-webserver" should be visible in docker-hub registry
+6) login to prod-vm 
+7) pull the docker images called "demo-webserver" on prod-vm
+8) run that "demo-webserver" docker image on prod
+    verification on prod-vm
+    1) docker image - should show image called "demo-webserver"
+    2) docker ps - should show container called "demo-webserver" is running 
+
