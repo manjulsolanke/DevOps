@@ -4,8 +4,8 @@
 
 ```bash
 sudo apt update
-sudo apt install default-jre
-sudo apt install default-jdk
+sudo apt install default-jre -y 
+sudo apt install default-jdk -y 
 javac -version
 ```
 
@@ -25,7 +25,7 @@ sudo add-apt-repository "deb https://pkg.jenkins.io/debian-stable binary/"
 
 3) Install Jenkins:
 
-`sudo apt install jenkins`
+`sudo apt install jenkins -y`
 
 4) Start the Jenkins service:
 
