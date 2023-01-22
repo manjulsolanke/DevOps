@@ -6,8 +6,12 @@
 
 2) Add the Jenkins package repository to the system's package manager:
 
-`wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
-sudo add-apt-repository "deb https://pkg.jenkins.io/debian-stable binary/"`
+```bash
+
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo add-apt-repository "deb https://pkg.jenkins.io/debian-stable binary/"
+
+```
 
 3) Install Jenkins:
 
