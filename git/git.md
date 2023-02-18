@@ -1,120 +1,150 @@
-## Git commands
+Git commands and examples
+--------------------------
+Here are some commonly used Git commands and examples:
 
-<details><summary> Initializing a repository </summary>
-  git init
-  
-  </details>
+1) Initializes a new Git repository in the current directory.
 
-<details><summary> Staging files </summary>
-git add <File_Name>
+    `git init`
 
-git add <File_Name> <File_Name>
+    Example: `git init`
 
-git add .
- </details>
+2) Creates a copy of a remote repository on your local machine.
 
-<details><summary> Viewing the status </summary>
-git status -s 
+    `git clone` 
+    
+    Example: `git clone https://github.com/user/repo.git`
 
-git status
+3) stages changes for commit.
 
-</details>
+    `git add` 
+    
+    Example: `git add file.txt`
+             
 
+4) Creates a new commit with the changes you have staged.
 
+    `git commit` 
 
-<details><summary> Committing the staged files </summary>
+    Example: `git commit -m "Add file.txt"`
 
-git commit -m "Message"
+5) Displays the current state of the repository, including any changes that have not yet been committed.
 
-git commit 
+    `git status` 
 
-</details>
+    Example: `git status`
 
+6) Uploads local changes to a remote repository.
 
-<details><summary> Removing files </summary>
+    `git push`
 
-git rm <files>
+    Example: `git push origin main`
 
-</details>
+7) Downloads and incorporates changes from a remote repository into your local copy.
 
+    `git pull` 
 
-<details><summary> Renaming files </summary>
+    Example: `git pull origin main`
 
-git mv file1.js file1.txt 
+8) Lists all branches in the repository.    
 
-</details>
+    `git branch` 
 
-<details><summary> Viewing the staged/unstaged changes </summary>
-git diff
+    Example: `git branch`
 
-git diff 
+9) Switches to a different branch.    
 
-</details>
+    `git checkout` 
 
+    Example: `git checkout main`
 
-<details><summary> Viewing the history </summary>
-git log
+10) Merges changes from one branch into another.
 
-git log --stat 
+    `git merge` 
 
-git log --patch 
+    Example: `git merge feature-branch`
 
-</details>
+11) Displays a list of commits in the repository.
 
+    `git log`
 
-<details><summary> Viewing a commit </summary>
-git show <commit ID>
-
-Checking out a commit
-
-git checkout <commit id>
-
-git checkout <Branch-name>
-
-</details>
+    Example: `git log`
 
 
+12) Shows the differences between the working directory and the latest commit.
 
-<details><summary> Managing branches </summary>
-git branch <branch-name> - (create new branch)
-
-git checkout <branch name> - (Switch to that branch name )
-
-git switch <branch name> - (Same as above)
-
-</details>
-
-<details><summary> Git diff  </summary>
-git diff <branch name> <Branch-name>
-
-</details>
+    `git diff` 
+    
+    `Example: git diff`
 
 
-<details><summary> Stashing  </summary>
+13) Lists all remote repositories.
+
+    `git remote`
+
+    Example: `git remote -v`
 
 
-git stash 
+12) Downloads changes from a remote repository without merging them into your local copy.
 
-git stash list 
-
-</details>
-
-<details><summary> Git Merge branches </summary>
-Git merge 
-
-git merge <Name of the branch>  - checkout main and merge it
-</details>
-
-<details><summary> Cloning a repository </summary>
-
-git clone url 
-
-</details>
+    `git fetch`
+    
+    Example: `git fetch origin`
 
 
-<details><summary> Syncing with remote  </summary>
-git fetch origin master 
+13) Resets the repository to a previous commit.
+    
+    `git reset`
 
-git pull 
+    Example: `git reset HEAD~1`
 
-</details>
+14) Reverts a commit by creating a new commit that undoes the changes.
+
+    `git revert`
+
+    Example: `git revert HEAD`
+
+15) Adds a tag to a commit to mark it as important or significant.
+
+    `git tag` 
+
+    Example: `git tag v1.0.0`
+
+
+16) Temporarily saves changes that are not ready to be committed.
+
+    `git stash`
+    
+    Example: `git stash`
+
+
+17) Applies the changes of a specific commit to the current branch.
+    
+    `git cherry-pick`
+    
+    Example: `git cherry-pick 123abc`
+
+18) Displays the details of a specific commit.    
+
+    `git show`
+
+    Example: `git show 123abc`
+
+
+19) Configures Git settings.
+
+    `git config` 
+    
+    Example: `git config --global user.name "John Doe"`
+
+20) Shows the author and last modified time of each line of a file.
+
+    `git blame` 
+    
+    Example: `git blame file.txt`
+
+21) Displays a summary of the commit history in a single line.
+
+    `git log --oneline`
+
+    Example: `git log --oneline`
+
