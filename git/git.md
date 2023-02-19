@@ -56,6 +56,8 @@ Here are some commonly used Git commands and examples:
     `git checkout` 
 
     Example: `git checkout main`
+              
+             `git checkout -b demo`
 
 10) Merges changes from one branch into another.
 
