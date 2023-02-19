@@ -2,6 +2,8 @@ Git commands and examples
 --------------------------
 Here are some commonly used Git commands and examples:
 
+revert example
+
 1) Initializes a new Git repository in the current directory.
 
     `git init`
