@@ -1,152 +1,46 @@
 Git commands and examples
 --------------------------
-Here are some commonly used Git commands and examples:
+Here are some commonly used Git commands:
 
-1) Initializes a new Git repository in the current directory.
+`git init`: Initialize a new Git repository in a directory.
 
-    `git init`
+`git add`: Stage changes for commit.
 
-    Example: `git init`
+`git commit`: Commit changes to the repository.
 
-2) Creates a copy of a remote repository on your local machine.
+`git status`: View the status of your repository.
 
-    `git clone` 
-    
-    Example: `git clone https://github.com/user/repo.git`
+`git log`: View the commit history of your repository.
 
-3) stages changes for commit.
+`git diff`: View the difference between two versions of a file.
 
-    `git add` 
-    
-    Example: `git add file.txt`
-             
+`git branch`: Create, list, or delete branches.
 
-4) Creates a new commit with the changes you have staged.
+`git checkout`: Switch branches or restore working tree files.
 
-    `git commit` 
+`git merge`: Merge one or more branches into the current branch.
 
-    Example: `git commit -m "Add file.txt"`
+`git remote`: Manage set of tracked repositories.
 
-5) Displays the current state of the repository, including any changes that have not yet been committed.
+`git clone`: Clone a repository into a new directory.
 
-    `git status` 
+`git push`: Upload local repository content to a remote repository.
 
-    Example: `git status`
+`git pull`: Fetch and download from a remote repository and merge with local content.
 
-6) Uploads local changes to a remote repository.
+`git fetch`: Download changes and files from a remote repository without merging.
 
-    `git push`
+`git tag`: Create, list, delete or verify a tag object.
 
-    Example: `git push origin main`
+`git stash`: Stash changes in a dirty working directory away.
 
-7) Downloads and incorporates changes from a remote repository into your local copy.
+`git rebase`: Apply a sequence of commits from one branch onto another branch.
 
-    `git pull` 
+`git reset`: Reset current HEAD to the specified state.
 
-    Example: `git pull origin main`
+`git show`: Show various types of objects.
 
-8) Lists all branches in the repository.    
-
-    `git branch` 
-
-    Example: `git branch`
-
-9) Switches to a different branch.    
-
-    `git checkout` 
-
-    Example: `git checkout main`
-
-10) Merges changes from one branch into another.
-
-    `git merge` 
-
-    Example: `git merge feature-branch`
-
-11) Displays a list of commits in the repository.
-
-    `git log`
-
-    Example: `git log`
-
-
-12) Shows the differences between the working directory and the latest commit.
-
-    `git diff` 
-    
-    `Example: git diff`
-
-
-13) Lists all remote repositories.
-
-    `git remote`
-
-    Example: `git remote -v`
-
-
-12) Downloads changes from a remote repository without merging them into your local copy.
-
-    `git fetch`
-    
-    Example: `git fetch origin`
-
-
-13) Resets the repository to a previous commit.
-    
-    `git reset`
-
-    Example: `git reset HEAD~1`
-
-14) Reverts a commit by creating a new commit that undoes the changes.
-
-    `git revert`
-
-    Example: `git revert HEAD`
-
-15) Adds a tag to a commit to mark it as important or significant.
-
-    `git tag` 
-
-    Example: `git tag v1.0.0`
-
-
-16) Temporarily saves changes that are not ready to be committed.
-
-    `git stash`
-    
-    Example: `git stash`
-
-
-17) Applies the changes of a specific commit to the current branch.
-    
-    `git cherry-pick`
-    
-    Example: `git cherry-pick 123abc`
-
-18) Displays the details of a specific commit.    
-
-    `git show`
-
-    Example: `git show 123abc`
-
-
-19) Configures Git settings.
-
-    `git config` 
-    
-    Example: `git config --global user.name "John Doe"`
-
-20) Shows the author and last modified time of each line of a file.
-
-    `git blame` 
-    
-    Example: `git blame file.txt`
-
-21) Displays a summary of the commit history in a single line.
-
-    `git log --oneline`
-
-    Example: `git log --oneline`
+`git rm`: Remove files from the working tree and from the index.
     
     
    Git best practices
@@ -179,5 +73,158 @@ By following these best practices, you can use Git effectively and make it easie
 
 
 
+   Git exercises 
+   --------------
+ 
+ #### Git working flow from scratch  
+   
+1) Initialize a new Git repository in a directory named "my_project".
+
+2) Add a file named "README.md" to the staging area.
+
+3) Commit the changes with the message "Initial commit".
+
+4) Create a new branch named "development".
+
+5) Switch to the "development" branch.
+
+6) Add a file named "index.html" to the staging area.
+
+7) Commit the changes with the message "Add index.html".
+
+8) Switch back to the main branch.
+
+9) Merge the "development" branch into the main branch.
+
+10) Add a new remote named "origin" with the URL "https://github.com/your_username/my_project.git".
+
+11) Push the main branch to the "origin" remote.
+
+12) Clone the repository to a new directory named "my_project_clone".
+
+13) Create a new branch named "feature".
+
+14) Add a file named "style.css" to the staging area.
+
+15) Commit the changes with the message "Add style.css".
+
+16) Switch back to the main branch.
+
+17) Merge the "feature" branch into the main branch.
+
+18) Push the main branch to the "origin" remote.
+
+19) Delete the "feature" branch.
+
+20) Push the deletion of the "feature" branch to the "origin" remote.
 
 
+#### Git merge command exercises 
+
+1) Create a new Git repository named "my_project".
+
+2) Initialize the repository with a README file.
+
+3) Create a new branch named "development".
+
+4) Switch to the "development" branch.
+
+5) Create a new file named "app.js".
+
+6) Add some code to the "app.js" file.
+
+7) Commit the changes with the message "Add app.js".
+
+8) Switch back to the main branch.
+
+9) Create a new file named "index.html".
+
+10) Add some code to the "index.html" file.
+
+11) Commit the changes with the message "Add index.html".
+
+12) Merge the "development" branch into the main branch using the command "git merge development".
+
+13) Resolve any conflicts that arise during the merge process.
+
+14) Add some more code to the "index.html" file.
+
+15) Commit the changes with the message "Update index.html".
+
+16) Merge the "development" branch into the main branch again using the command "git merge development".
+
+17) Resolve any conflicts that arise during the merge process.
+
+18) Delete the "development" branch.
+
+19) Commit the changes with the message "Delete development branch".
+
+20) Push the changes to the remote repository.
+
+
+
+Git Interview questions
+-------------
+What is Git and how does it differ from other version control systems?
+
+What is a Git repository and how do you create one?
+
+What is a commit in Git and how do you create one?
+
+What is a branch in Git and how do you create one?
+
+What is a merge in Git and how do you perform one?
+
+What is a pull request and how do you create one?
+
+How do you resolve merge conflicts in Git?
+
+What is the difference between git pull and git fetch?
+
+What is a Git tag and how do you create one?
+
+How do you revert a commit in Git?
+
+What is a rebase in Git and how is it different from a merge?
+
+What is the difference between a bare and non-bare repository?
+
+How do you undo changes in Git?
+
+What is the difference between Git and GitHub?
+
+What is GitLab and how does it differ from GitHub?
+
+What is a fork in Git and how do you create one?
+
+How do you cherry-pick a commit in Git?
+
+What is Git stash and how do you use it?
+
+How do you initialize a Git repository?
+
+How do you add files to the staging area in Git?
+
+How do you commit changes to a Git repository?
+
+What is a remote in Git and how do you add one?
+
+How do you push changes to a remote repository in Git?
+
+How do you clone a Git repository?
+
+What is the difference between Git merge and Git rebase?
+
+What is Git branching strategy and how do you implement it?
+
+How do you resolve merge conflicts in Git?
+
+What is Git revert and how do you use it?
+
+What is Git cherry-pick and how do you use it?
+
+How do you use Git stash to save and apply changes later?
+
+How do you use Git blame to find who made changes to a file?
+
+What is Gitignore and how do you use it to exclude files from tracking?
