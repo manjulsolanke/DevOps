@@ -1,4 +1,4 @@
-Git commands and examples
+Git commands and examples.
 --------------------------
 Here are some commonly used Git commands:
 
