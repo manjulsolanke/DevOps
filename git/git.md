@@ -228,3 +228,5 @@ How do you use Git stash to save and apply changes later?
 How do you use Git blame to find who made changes to a file?
 
 What is Gitignore and how do you use it to exclude files from tracking?
+ 
+----
