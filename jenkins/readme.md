@@ -1,6 +1,6 @@
 ## Jenkins installation on Ubunut 22.04
 
-### Installation steps
+### Installation steps on Ubunut 22.04
 
 ```bash
 sudo apt update
@@ -15,3 +15,11 @@ sudo ufw allow 8080
 ```
 
 Note: tried and tested on ec2 Ubuntu 22.04
+
+
+### Installation steps on docker
+
+```bash
+docker pull jenkins/jenkins:lts
+docker run -p 8081:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts
+```
