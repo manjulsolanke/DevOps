@@ -14,7 +14,6 @@ chmod +x ./kind
 sudo mv ./kind /usr/bin
 
 kind version
-kind v0.11.1 go1.16.4 linux/amd64
 
 ```
 
