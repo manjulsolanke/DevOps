@@ -17,10 +17,14 @@ kind version
 
 ```
 
+### Kubectl commands cheatsheet
+
+```
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+```
 
 
-
-Kubernetes project.
+### Kubernetes project.
 
 1) Create a docker  image  called "demo-pod"  on local machine.
 2) give a tag called "v1" i.e demo-pod:v1
