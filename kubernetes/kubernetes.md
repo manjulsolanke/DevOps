@@ -1,3 +1,26 @@
+## Installing Kubectl 
+
+```bash
+sudo snap install kubectl --classic
+```
+
+## Installing KinD as local k8s cluster
+
+Installing the KinD binary
+
+```bash
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/bin
+
+kind version
+kind v0.11.1 go1.16.4 linux/amd64
+
+```
+
+
+
+
 Kubernetes project.
 
 1) Create a docker  image  called "demo-pod"  on local machine.
