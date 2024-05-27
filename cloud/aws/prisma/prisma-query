@@ -109,3 +109,13 @@ online
 
 config where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups' AND (($.IpPermissions[*].IpRanges[*].CidrIp contains '0.0.0.0/0') or ($.IpPermissionsEgress[*].IpRanges[*].CidrIp contains '0.0.0.0/0')) select $.GroupId, $.GroupName, $.Description, $.VpcId, $.IpPermissions[*].IpProtocol, $.IpPermissions[*].FromPort, $.IpPermissions[*].ToPort, $.IpPermissions[*].IpRanges[*].CidrIp, $.IpPermissions[*].Ipv6Ranges[*].CidrIpv6, $.IpPermissions[*].UserIdGroupPairs[*].GroupId, $.IpPermissionsEgress[*].IpProtocol, $.IpPermissionsEgress[*].FromPort, $.IpPermissionsEgress[*].ToPort, $.IpPermissionsE
 
+
+
+
+
+============
+
+
+
+config from cloud.resource where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups' AND json.rule = (ipPermissions[*].ipRanges[*] contains "0.0.0.0/0" or ipPermissionsEgress[*].ipRanges[*] contains "0.0.0.0/0") select id as SecurityGroupId, name as SecurityGroupName, description as Description, vpcId as VpcId, ipPermissions as InboundRules, ipPermissionsEgress as OutboundRules
+
