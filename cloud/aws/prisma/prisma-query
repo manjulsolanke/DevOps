@@ -100,3 +100,12 @@ config where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups
         }
     }
 
+
+
+
+
+online
+=========
+
+config where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups' AND (($.IpPermissions[*].IpRanges[*].CidrIp contains '0.0.0.0/0') or ($.IpPermissionsEgress[*].IpRanges[*].CidrIp contains '0.0.0.0/0')) select $.GroupId, $.GroupName, $.Description, $.VpcId, $.IpPermissions[*].IpProtocol, $.IpPermissions[*].FromPort, $.IpPermissions[*].ToPort, $.IpPermissions[*].IpRanges[*].CidrIp, $.IpPermissions[*].Ipv6Ranges[*].CidrIpv6, $.IpPermissions[*].UserIdGroupPairs[*].GroupId, $.IpPermissionsEgress[*].IpProtocol, $.IpPermissionsEgress[*].FromPort, $.IpPermissionsEgress[*].ToPort, $.IpPermissionsE
+
