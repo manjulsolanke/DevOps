@@ -1,0 +1,102 @@
+I need prisma cloud query to fetch security groups from across the aws account with sg description and sg rules description.
+
+
+
+config where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups' 
+    select {
+        "SecurityGroupId": $.GroupId,
+        "SecurityGroupName": $.GroupName,
+        "Description": $.Description,
+        "VpcId": $.VpcId,
+        "InboundRules": $.IpPermissions[*].{
+            "IpProtocol": IpProtocol,
+            "FromPort": FromPort,
+            "ToPort": ToPort,
+            "IpRanges": IpRanges[*].CidrIp,
+            "Ipv6Ranges": Ipv6Ranges[*].CidrIpv6,
+            "UserIdGroupPairs": UserIdGroupPairs[*].GroupId
+        },
+        "OutboundRules": $.IpPermissionsEgress[*].{
+            "IpProtocol": IpProtocol,
+            "FromPort": FromPort,
+            "ToPort": ToPort,
+            "IpRanges": IpRanges[*].CidrIp,
+            "Ipv6Ranges": Ipv6Ranges[*].CidrIpv6,
+            "UserIdGroupPairs": UserIdGroupPairs[*].GroupId
+        }
+    }
+
+
+
+
+
+I need prisma cloud query to fetch security groups from across the aws account without description to sg and sg rules
+
+
+config where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups' 
+    AND (
+        $.Description is null or $.Description = '' or
+        ($.IpPermissions[*].Description is null or $.IpPermissions[*].Description = '') or
+        ($.IpPermissionsEgress[*].Description is null or $.IpPermissionsEgress[*].Description = '')
+    )
+    select {
+        "SecurityGroupId": $.GroupId,
+        "SecurityGroupName": $.GroupName,
+        "Description": $.Description,
+        "VpcId": $.VpcId,
+        "InboundRules": $.IpPermissions[*].{
+            "IpProtocol": IpProtocol,
+            "FromPort": FromPort,
+            "ToPort": ToPort,
+            "IpRanges": IpRanges[*].CidrIp,
+            "Ipv6Ranges": Ipv6Ranges[*].CidrIpv6,
+            "UserIdGroupPairs": UserIdGroupPairs[*].GroupId,
+            "Description": Description
+        },
+        "OutboundRules": $.IpPermissionsEgress[*].{
+            "IpProtocol": IpProtocol,
+            "FromPort": FromPort,
+            "ToPort": ToPort,
+            "IpRanges": IpRanges[*].CidrIp,
+            "Ipv6Ranges": Ipv6Ranges[*].CidrIpv6,
+            "UserIdGroupPairs": UserIdGroupPairs[*].GroupId,
+            "Description": Description
+        }
+    }
+
+
+
+
+
+
+
+I need prisma cloud query to fetch security groups from across the aws account where 0.0.0.0/0 rule is there for sg
+
+config where cloud.type = 'aws' AND api.name = 'aws-ec2-describe-security-groups' 
+    AND (
+        ($.IpPermissions[*].IpRanges[*].CidrIp contains '0.0.0.0/0') or
+        ($.IpPermissionsEgress[*].IpRanges[*].CidrIp contains '0.0.0.0/0')
+    )
+    select {
+        "SecurityGroupId": $.GroupId,
+        "SecurityGroupName": $.GroupName,
+        "Description": $.Description,
+        "VpcId": $.VpcId,
+        "InboundRules": $.IpPermissions[*].{
+            "IpProtocol": IpProtocol,
+            "FromPort": FromPort,
+            "ToPort": ToPort,
+            "IpRanges": IpRanges[*].CidrIp,
+            "Ipv6Ranges": Ipv6Ranges[*].CidrIpv6,
+            "UserIdGroupPairs": UserIdGroupPairs[*].GroupId
+        },
+        "OutboundRules": $.IpPermissionsEgress[*].{
+            "IpProtocol": IpProtocol,
+            "FromPort": FromPort,
+            "ToPort": ToPort,
+            "IpRanges": IpRanges[*].CidrIp,
+            "Ipv6Ranges": Ipv6Ranges[*].CidrIpv6,
+            "UserIdGroupPairs": UserIdGroupPairs[*].GroupId
+        }
+    }
+
