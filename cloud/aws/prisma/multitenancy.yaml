@@ -1,0 +1,95 @@
+---
+kubectl create namespace app1
+kubectl create namespace app2
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1-deployment
+  namespace: app1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app1
+  template:
+    metadata:
+      labels:
+        app: app1
+    spec:
+      containers:
+      - name: app1
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        nodegroup: nodegroup1
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1-service
+  namespace: app1
+spec:
+  selector:
+    app: app1
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+kubectl apply -f app1-deployment.yaml
+kubectl apply -f app1-service.yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2-deployment
+  namespace: app2
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app2
+  template:
+    metadata:
+      labels:
+        app: app2
+    spec:
+      containers:
+      - name: app2
+        image: httpd:latest
+        ports:
+        - containerPort: 80
+      nodeSelector:
+        nodegroup: nodegroup2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2-service
+  namespace: app2
+spec:
+  selector:
+    app: app2
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: app2-service
+  namespace: app2
+spec:
+  selector:
+    app: app2
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  type: LoadBalancer
+
