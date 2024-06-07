@@ -1,0 +1,107 @@
+### Standard Operating Procedure (SOP) for Amazon EKS on AWS
+
+This document outlines the Standard Operating Procedures (SOP) for managing Amazon Elastic Kubernetes Service (EKS) clusters on AWS. The following points detail our setup and best practices to ensure security, efficiency, and compliance.
+
+#### 1. Private API Server Endpoints
+
+- **Policy**: All EKS API server endpoints are configured to be private.
+- **Implementation**:
+  - When creating an EKS cluster, ensure the API server endpoint is accessible only within the VPC.
+  - Use AWS Console, CLI, or Terraform to set the `endpointPrivateAccess` parameter to `true`.
+  - Example Terraform snippet:
+    ```hcl
+    resource "aws_eks_cluster" "example" {
+      ...
+      endpoint_private_access = true
+      ...
+    }
+    ```
+
+#### 2. Ingress Connections Through Firewall
+
+- **Policy**: All ingress connections to EKS clusters are routed through a firewall.
+- **Implementation**:
+  - Utilize AWS Network Firewall or third-party firewall solutions to manage ingress traffic.
+  - Configure firewall rules to allow only trusted sources to access the cluster.
+  - Example security group configuration:
+    ```hcl
+    resource "aws_security_group_rule" "allow_ingress" {
+      ...
+      source_security_group_id = aws_security_group.trusted_sources.id
+      ...
+    }
+    ```
+
+#### 3. Hardening Images Based on CIS Benchmark
+
+- **Policy**: All node images are hardened based on CIS (Center for Internet Security) benchmark standards.
+- **Implementation**:
+  - Use AWS-provided EKS optimized AMIs that comply with CIS benchmarks.
+  - Regularly update and scan images to ensure compliance.
+  - Example AMI selection:
+    ```hcl
+    data "aws_ami" "eks_optimized" {
+      ...
+      owners = ["602401143452"]
+      filter {
+        name   = "name"
+        values = ["amazon-eks-node-*"]
+      }
+      ...
+    }
+    ```
+
+#### 4. EKS Clusters Scanning and Hardening by CIS Benchmark
+
+- **Policy**: EKS clusters are regularly scanned and hardened according to CIS EKS benchmarks.
+- **Implementation**:
+  - Integrate CIS benchmark scanning tools (e.g., kube-bench) into the CI/CD pipeline.
+  - Automate remediation of non-compliant configurations.
+  - Example integration of kube-bench:
+    ```yaml
+    steps:
+      - name: Run kube-bench
+        image: aquasec/kube-bench:latest
+        script:
+          - kube-bench --version 1.0.0
+    ```
+
+#### 5. Usage of Add-ons
+
+- **Policy**: Utilize and manage the following EKS add-ons:
+  - VPC-CNI
+  - kube-proxy
+  - CoreDNS
+  - Amazon EFS CSI Driver
+  - Amazon EBS CSI Driver
+- **Implementation**:
+  - Ensure add-ons are installed and updated via the AWS EKS Console, CLI, or Terraform.
+  - Example Terraform configuration:
+    ```hcl
+    resource "aws_eks_addon" "vpc_cni" {
+      cluster_name = aws_eks_cluster.example.name
+      addon_name   = "vpc-cni"
+    }
+    ```
+
+#### 6. Full Terraform Automation from January 2024
+
+- **Policy**: From January 2024, all EKS clusters will be built and managed exclusively using Terraform.
+- **Implementation**:
+  - Transition existing infrastructure to Terraform scripts.
+  - Implement Terraform modules for consistent and reusable infrastructure components.
+  - Example Terraform module usage:
+    ```hcl
+    module "eks" {
+      source          = "terraform-aws-modules/eks/aws"
+      cluster_name    = "my-cluster"
+      cluster_version = "1.24"
+      ...
+    }
+    ```
+
+This document serves as a guide for the technical team to follow best practices and ensure the security and efficiency of our EKS clusters on AWS. For any further assistance or queries, please contact the DevOps team.
+
+---
+
+Feel free to modify or expand upon this template as needed to better fit your organization's specific requirements and policies.
